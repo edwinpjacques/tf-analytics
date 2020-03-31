@@ -35,7 +35,7 @@ AnalyticsEnv.Append(LIBS=['boost_python', python])
 def MapBuildDir(list):
     return map(lambda x: '#/' + Dir('.').path + '/../' + x, list)
 
-etcd_incl = os.environ.get('CONTRAIL_ETCD_INCL');
+etcd_incl = os.environ.get('CONTRAIL_K8S_CONFIG');
 
 if etcd_incl:
     AnalyticsEnv.Prepend(LIBS = ['etcdql', 'protobuf', 'grpc++', 'grpc', 'z'])
