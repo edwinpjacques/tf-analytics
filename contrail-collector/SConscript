@@ -38,7 +38,7 @@ def MapBuildDir(list):
 k8s_incl = os.environ.get('CONTRAIL_K8S_CONFIG');
 
 if k8s_incl:
-    AnalyticsEnv.Prepend(LIBS = ['k8s_client', 'cpprest'])
+    AnalyticsEnv.Prepend(LIBS = ['k8s_client', 'restclient-cpp'])
 
 AnalyticsEnv.Prepend(LIBS=['cpuinfo',
         'io',
