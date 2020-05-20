@@ -35,11 +35,6 @@ AnalyticsEnv.Append(LIBS=['boost_python', python])
 def MapBuildDir(list):
     return map(lambda x: '#/' + Dir('.').path + '/../' + x, list)
 
-k8s_incl = os.environ.get('CONTRAIL_K8S_CONFIG');
-
-if k8s_incl:
-    AnalyticsEnv.Prepend(LIBS = ['k8s_client', 'restclient-cpp'])
-
 AnalyticsEnv.Prepend(LIBS=['cpuinfo',
         'io',
         'vncapi',
@@ -75,7 +70,9 @@ AnalyticsEnv.Prepend(LIBS=['cpuinfo',
         'boost_chrono',
         'rabbitmq',
         'rdkafka++',
-        'rdkafka'])
+        'rdkafka',
+        'k8s_client',
+        'restclient-cpp'])
 
 (PLATFORM, VERSION, EXTRA) = platform.linux_distribution()
 if PLATFORM.lower() != 'ubuntu' or (PLATFORM.lower() == 'ubuntu' and VERSION.find('16.') == 0):
